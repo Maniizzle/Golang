@@ -20,6 +20,7 @@ func main() {
 	//http.HandleFunc("/", Handler)
 	//http.ListenAndServe(":3000", nil)
 
+	Loops()
 	TheStruct()
 	Map()
 	//Slice()
@@ -158,7 +159,63 @@ func TheStruct() {
 
 }
 
+// struct is copied by value
+// it is comparable
 type myStruct struct {
 	id   int
 	name string
+}
+
+type menuItem struct {
+	name   string
+	prices map[string]float64
+}
+
+func Loops() {
+	// for { ......} infinite loop
+	// for condition { ......}  loop till condition
+	// for initialozer; test; post clause { ......}  counter-based loop
+
+	//counter-based loop
+	for i := 1; i < 3; i++ {
+		fmt.Println(i)
+	}
+	fmt.Println("done")
+
+	//condition loop
+	j := 1
+	for j < 3 {
+		fmt.Println(j)
+		j++
+	}
+
+	//infinite loop
+	i := 1
+	for {
+		fmt.Println(i)
+		i++
+		break
+	}
+
+	//looping with collections
+	// for key, value := range collection {......} get both key and value
+	// for key := range collection {......} get just the key
+	// for _,value := range collection {......} get just the value
+
+	arr := [3]int{1, 2, 3}
+	for b, v := range arr {
+		fmt.Println(b, v)
+	}
+
+	menu := []menuItem{
+		{name: "Cofee", prices: map[string]float64{"small": 1.65, "medium": 1.80}},
+		{name: "Espresso", prices: map[string]float64{"single": 1.90, "double": 2.25}},
+	}
+	for _, item := range menu {
+		fmt.Println(item.name)
+		fmt.Println(strings.Repeat("-", 10))
+		for size, price := range item.prices {
+			fmt.Printf("\t%10s%10.2f\n", size, price)
+		}
+	}
 }
