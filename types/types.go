@@ -17,6 +17,11 @@ type myStruct struct {
 	name string
 }
 
+// mmethod
+func (u myStruct) Print() string {
+	return fmt.Sprintf("%v [%v]\n", u.name, u.id)
+}
+
 type MenuItem struct {
 	Name   string
 	Prices map[string]float64
