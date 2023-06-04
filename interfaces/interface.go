@@ -65,26 +65,4 @@ func InterfaceMain() {
 		fmt.Println("I am not found")
 	}
 
-	testScores := []float64{
-		87.3,
-		105,
-		63.5,
-		27,
-	}
-	fmt.Println(testScores)
-
-	clone := GenericsClone(testScores)
-	fmt.Println(clone)
-
-	fmt.Println(&testScores[0], &clone[0], clone)
-
-}
-
-func GenericsClone[V any](s []V) []V {
-	result := make([]V, len(s))
-	copy(result, s)
-	// for i, v := range s {
-	// 	result[i] = v
-	// }
-	return result
 }
