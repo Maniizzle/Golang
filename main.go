@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"demo/errors"
-	"demo/types"
+	"demo/gofunctions"
 
 	"fmt"
 	"io"
@@ -18,7 +18,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 
-	types.TypesMain()
+	//types.TypesMain()
+	gofunctions.FunctionMain()
+
+	return
 	//http.HandleFunc("/", Handler)
 	//http.ListenAndServe(":3000", nil)
 
