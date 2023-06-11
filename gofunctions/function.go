@@ -3,6 +3,7 @@ package gofunctions
 import (
 	"math"
 	"net/http"
+	"reflect"
 	"strings"
 )
 
@@ -116,7 +117,16 @@ func betterStateAnonymousFunction() {
 	}
 }
 
+func init() {
+	println("testing init function")
+
+}
+
 func FunctionMain() {
+
+	var no int = 100
+	println(reflect.TypeOf(no))
+
 	numbers := []float64{1, 2.3, 4.5, 66.7}
 	result := sum(numbers...)
 	println(result)
